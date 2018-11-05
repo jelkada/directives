@@ -1,0 +1,74 @@
+
+
+
+<div class="container my-5">
+
+  <div class="row no-gutters">
+    <div class="col-xs-12">
+      <h3>Structural and attribute directives (<a href="https://github.com/jelkada/directives" target="_blank">see on github</a>)</h3>
+    </div>
+  </div>
+
+  <hr class=""/>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p><span textHighlight>Lorem Ipsum</span> is simply dummy text of the printing and typesetting industry. <span textHighlight>Lorem Ipsum</span> has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing <span textHighlight>Lorem Ipsum</span> passages, and more recently with desktop publishing software like Aldus PageMaker including versions of <span textHighlight>Lorem Ipsum</span>.</p>    </div>
+    </div>
+
+  <hr class="mt-5"/>
+
+  <div class="row">
+    <div class="col-md-6" *appDelay="5000">
+      <div>*appDelay="5000": this text/element is added after 5 seconds</div>
+    </div>
+    <br/>
+    <div class="col-md-6" *appDelay="10000">
+      <div>*appDelay="10000": this text/element is added after 10 seconds</div>
+    </div>
+  </div>
+
+
+  <hr class="mt-5"/>
+
+  <div class="row no-gutters">
+    <div class="col-xs-12 ng-non-bindable">
+      <h4 class="mt-3">Directives basics:</h4>
+      <ul>
+        <li>Directives are markers on a DOM element that tell Angular's HTML compiler to manipulate the DOM by adding, removing or modifying DOM elements.</li>
+        <li>Before a view is displayed, Angular evaluates or compiles the directives to modify the HTML elements and the DOM.</li>
+        <li>Like a component, a directive is essentially a function that executes when the Angular compiler finds it in the DOM. </li>
+        <li>In templates, directives typically appear within an element tag as attributes.</li>
+        <li>There are two kinds of directives in Angular.</li>
+        <li>(1) Structural directives — change the DOM layout by adding and removing DOM elements (NgFor, NgIf).</li>
+        <li>(2) Attribute directives — change the appearance or behaviour of an element (NgStyle, ngClass).</li>
+        <li> A Component is sometimes referred to as a "directive with a dedicated template".</li>
+        <li>The star * before the directive indicates to Angular that we are using a structural directive.</li>
+        <li>With the * shortcut Angular transforms the code to an &lt;ng-template&gt; element</li>
+        <li>For example, &lt;div *ngIf="!userActive"&gt; is equivalent to &lt;ng-template [ngIf]="!userActive"&gt;</li>
+      </ul>
+      <h4 class="mt-3">Usage:</h4>
+      <ul>
+        <li>A directive is a class with a @Directive() decorator which must have a selector property for the directive's name<br/>Ex:@Directive(&#123; selector: ‘[textHighlight]' &#125;)</li>
+        <li>Define in the attribute directive class constructor a reference to the DOM element where the directive will be added.<br/>ex: constructor(private elementRef: ElementRef)...</li>
+        <li>For arrtibute directive use the ElementRef type in the constructor to access the element's attributes<br/>constructor(private elementRef: ElementRef) &#123;&nbsp;&#125;</li>
+        <li>For structural directive use the TemplateRef and ViewContainerRef types in the constructor to access the element's DOM node<br/>constructor(private templateRef: TemplateRef&lt;any&gt;, private viewContainerRef: ViewContainerRef) &#123;&nbsp;&#125;</li>
+        <li>The templateRef variable is the "what" html code/template to inject and viewContainerRef variable is the "where" to inject or add the HTML code</li>
+      </ul>
+      <h4 class="mt-3">Components vs. Directives:</h4>
+      <ul>
+        <li>Components look like HTML tags while directives look like HTML elements.</li>
+        <li>Components must have a dedicated HTML template or @View, whereas directives cannot have one.</li>
+        <li>Components have their own view (hierarchy in DOM elements) with attached behaviour.</li>
+        <li>Directive supplement an existing DOM elements, whereas components create new DOM elements.</li>
+        <li>Directive classes use the @Directive() decorator, and components classes use the @Component() decorator.</li>
+        <li>Components use lower-case dash-delimited naming convention, whereas directives are usually named using camelCase notation.</li>
+        <li>Component is a directive which uses shadow DOM to create encapsulated visual behaviour.</li>
+        <li>Only one component can be present per DOM element, whereas many directives can be used in one DOM element.</li>
+        <li>@Component decorator is actually a @Directive decorator extended with template-oriented features.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
